@@ -4,8 +4,13 @@ var asciitable = module.exports = function asciitable(options, data) {
     return ("" + text) + (new Array((length - ("" + text).length) + 1)).join(" ");
   };
 
-  if (typeof options === "object" && Array.isArray(options) && typeof data === "undefined") {
+  if (typeof options === "object" && Array.isArray(options)) {
+    var tmp = data;
     data = options;
+    options = tmp;
+  }
+
+  if (!options) {
     options = {};
   }
 

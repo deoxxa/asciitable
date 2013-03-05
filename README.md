@@ -29,7 +29,15 @@ API
 Generates a table! Easy as pie!
 
 ```javascript
-var table = asciitable([options], data);
+var table = asciitable(options, data);
+
+// OR
+
+var table = asciitable(data, options);
+
+// OR
+
+var table = asciitable(data);
 ```
 
 ```javascript
