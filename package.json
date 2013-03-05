@@ -1,6 +1,6 @@
 {
   "name": "asciitable",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Render tables in text for tabular terminal fun times!",
   "main": "index.js",
   "scripts": {
