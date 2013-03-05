@@ -41,19 +41,17 @@ var asciitable = module.exports = function asciitable(options, data) {
     });
   });
 
-  var total_width = columns.reduce(function(i, v) {
-    return i + v.width + 3;
-  }, 4);
-
   var output = [];
 
-  output.push((new Array(total_width)).join("-"));
+  var separator = [""].concat(columns.map(function(e) { return (new Array(e.width + 1)).join("-"); })).concat([""]).join("-+-");
+
+  output.push(separator);
   output.push([""].concat(columns.map(function(e) { return pad(e.field, e.width); })).concat([""]).join(" | "));
-  output.push((new Array(total_width)).join("-"));
+  output.push(separator);
   data.forEach(function(row) {
     output.push([""].concat(columns.map(function(column) { return pad(row[column.field], column.width); })).concat([""]).join(" | "));
   });
-  output.push((new Array(total_width)).join("-"));
+  output.push(separator);
 
   return output.join("\n");
 };
