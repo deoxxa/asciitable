@@ -63,6 +63,8 @@ Options
 * _fields_ - an array of field names you want to display. If omitted, asciitable
   will try to figure out what all the fields are for all the objects in the data
   array.
+* _plusIntersections_ - enables using a `+` character at line intersections.
+  Default is false. Or undefined. Whatever, default is "not enabled".
 
 Example
 -------

@@ -43,7 +43,7 @@ var asciitable = module.exports = function asciitable(options, data) {
 
   var output = [];
 
-  var separator = [""].concat(columns.map(function(e) { return (new Array(e.width + 1)).join("-"); })).concat([""]).join("-+-");
+  var separator = [""].concat(columns.map(function(e) { return (new Array(e.width + 1)).join("-"); })).concat([""]).join(options.plusIntersections ? "-+-" : "---");
 
   output.push(separator);
   output.push([""].concat(columns.map(function(e) { return pad(e.field, e.width); })).concat([""]).join(" | "));
