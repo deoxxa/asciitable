@@ -1,0 +1,23 @@
+{
+  "name": "asciitable",
+  "version": "0.0.0",
+  "description": "Render tables in text for tabular terminal fun times!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/deoxxa/asciitable.git"
+  },
+  "keywords": [
+    "ascii",
+    "table",
+    "render",
+    "console",
+    "terminal",
+    "text"
+  ],
+  "author": "Conrad Pankoff <deoxxa@fknsrs.biz> (http://www.fknsrs.biz/)",
+  "license": "BSD"
+}
