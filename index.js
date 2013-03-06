@@ -1,7 +1,7 @@
 var asciitable = module.exports = function asciitable(options, data) {
   var pad = function pad(text, length) {
     if (typeof text === "undefined") { text = ""; }
-    return ("" + text) + (new Array((length - ("" + text).length) + 1)).join(" ");
+    return ("" + text) + new Array(Math.max((length - ("" + text).length) + 1,0)).join(" ");
   };
 
   if (typeof options === "object" && Array.isArray(options)) {
@@ -27,7 +27,7 @@ var asciitable = module.exports = function asciitable(options, data) {
   columns = columns.map(function(e) {
     return {
       field: e,
-      width: 0,
+      width: e.length,
     };
   });
 
