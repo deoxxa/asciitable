@@ -25,10 +25,16 @@ var asciitable = module.exports = function asciitable(options, data) {
   }
 
   columns = columns.map(function(e) {
-    return {
-      field: e,
-      width: e.length,
-    };
+    if (typeof e === "string") {
+      e = {
+        name: e,
+        field: e,
+      };
+    }
+
+    e.width = e.name.length;
+
+    return e;
   });
 
   data.forEach(function(e) {
@@ -46,7 +52,7 @@ var asciitable = module.exports = function asciitable(options, data) {
   var separator = [""].concat(columns.map(function(e) { return (new Array(e.width + 1)).join("-"); })).concat([""]).join(options.plusIntersections ? "-+-" : "---");
 
   output.push(separator);
-  output.push([""].concat(columns.map(function(e) { return pad(e.field, e.width); })).concat([""]).join(" | "));
+  output.push([""].concat(columns.map(function(e) { return pad(e.name, e.width); })).concat([""]).join(" | "));
   output.push(separator);
   data.forEach(function(row) {
     output.push([""].concat(columns.map(function(column) { return pad(row[column.field], column.width); })).concat([""]).join(" | "));

@@ -74,13 +74,22 @@ Also see [example.js](https://github.com/deoxxa/pillion/blob/master/example.js).
 ```javascript
 var asciitable = require("asciitable");
 
-var table = asciitable([
-  {a: "a", b: "b", c: "c"},
-  {a: "asddsfa", b: "sss", c: "zxc"},
-  {a: "dsgvdgsdvgssdf", b: "x", c: "eryty"},
-  {a: "m", b: "n", c: "o", d: "p"},
-  {a: 5, b: null, c: {}, d: []},
-  {a: function(){}},
+var options = {
+  columns: [
+    {field: "ab", name: "First"},
+    {field: "b",  name: "Second"},
+    {field: "c",  name: "Third"},
+    {field: "de", name: "Fourth"},
+  ],
+};
+
+var table = asciitable(options, [
+  {ab: "a",              b: "b",   c: "c"            },
+  {ab: "asddsfa",        b: "sss", c: "zxc"          },
+  {ab: "dsgvdgsdvgssdf", b: "x",   c: "eryty"        },
+  {ab: "m",              b: "n",   c: "o",    de: "p"},
+  {ab: 5,                b: null,  c: {},     de: [] },
+  {ab: function(){}},
 ]);
 
 console.log(table);
@@ -89,16 +98,16 @@ console.log(table);
 Output:
 
 ```
--------------------------------------------------
- | a              | b    | c               | d |
--------------------------------------------------
- | a              | b    | c               |   |
- | asddsfa        | sss  | zxc             |   |
- | dsgvdgsdvgssdf | x    | eryty           |   |
- | m              | n    | o               | p |
- | 5              | null | [object Object] |   |
- | function (){}  |      |                 |   |
--------------------------------------------------
+--------------------------------------------------------
+ | First          | Second | Third           | Fourth |
+--------------------------------------------------------
+ | a              | b      | c               |        |
+ | asddsfa        | sss    | zxc             |        |
+ | dsgvdgsdvgssdf | x      | eryty           |        |
+ | m              | n      | o               | p      |
+ | 5              | null   | [object Object] |        |
+ | function (){}  |        |                 |        |
+--------------------------------------------------------
 ```
 
 License
