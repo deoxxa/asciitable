@@ -3,6 +3,8 @@
 var asciitable = require("./");
 
 var options = {
+  skinny: true,
+  plusIntersections: true,
   columns: [
     {field: "ab", name: "First"},
     {field: "b",  name: "Second"},
