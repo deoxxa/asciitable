@@ -65,6 +65,8 @@ Options
   array.
 * _plusIntersections_ - enables using a `+` character at line intersections.
   Default is false. Or undefined. Whatever, default is "not enabled".
+* _skinny_ - trims the "hanging" characters used in the layout. Saves you two
+  horizontal characters!
 
 Example
 -------

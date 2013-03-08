@@ -59,5 +59,11 @@ var asciitable = module.exports = function asciitable(options, data) {
   });
   output.push(separator);
 
+  if (options.skinny) {
+    output = output.map(function(e) {
+      return e.replace(/^[ -]/, "").replace(/[ -]$/, "");
+    });
+  }
+
   return output.join("\n");
 };
