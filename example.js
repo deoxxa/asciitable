@@ -4,7 +4,7 @@ var asciitable = require("./");
 
 var options = {
   skinny: true,
-  plusIntersections: true,
+  intersectionCharacter: "x",
   columns: [
     {field: "ab", name: "First"},
     {field: "b",  name: "Second"},

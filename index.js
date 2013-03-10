@@ -14,6 +14,10 @@ var asciitable = module.exports = function asciitable(options, data) {
     options = {};
   }
 
+  if (!options.intersectionCharacter) {
+    options.intersectionCharacter = "-";
+  }
+
   var columns;
   if (options.columns) {
     columns = options.columns;
@@ -49,7 +53,7 @@ var asciitable = module.exports = function asciitable(options, data) {
 
   var output = [];
 
-  var separator = [""].concat(columns.map(function(e) { return (new Array(e.width + 1)).join("-"); })).concat([""]).join(options.plusIntersections ? "-+-" : "---");
+  var separator = [""].concat(columns.map(function(e) { return (new Array(e.width + 1)).join("-"); })).concat([""]).join("-" + options.intersectionCharacter + "-");
 
   output.push(separator);
   output.push([""].concat(columns.map(function(e) { return pad(e.name, e.width); })).concat([""]).join(" | "));

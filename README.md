@@ -50,6 +50,17 @@ var table = asciitable([
 ]);
 
 console.log(table);
+
+// pretty table
+var table = asciitable([
+  {a: "a", b: "b", c: "c"},
+  {a: "asddsfa", b: "sss", c: "zxc"},
+  {a: "dsgvdgsdvgssdf", b: "x", c: "eryty"},
+  {a: "m", b: "n", c: "o", d: "p"},
+], {
+  skinny: true,
+  intersectionCharacter: "@",
+});
 ```
 
 Arguments
@@ -63,8 +74,8 @@ Options
 * _fields_ - an array of field names you want to display. If omitted, asciitable
   will try to figure out what all the fields are for all the objects in the data
   array.
-* _plusIntersections_ - enables using a `+` character at line intersections.
-  Default is false. Or undefined. Whatever, default is "not enabled".
+* _intersectionCharacter_ - changes what character to use at points where lines
+  intersect. The default is "-".
 * _skinny_ - trims the "hanging" characters used in the layout. Saves you two
   horizontal characters!
 
@@ -77,6 +88,8 @@ Also see [example.js](https://github.com/deoxxa/pillion/blob/master/example.js).
 var asciitable = require("asciitable");
 
 var options = {
+  skinny: true,
+  intersectionCharacter: "x",
   columns: [
     {field: "ab", name: "First"},
     {field: "b",  name: "Second"},
@@ -100,16 +113,16 @@ console.log(table);
 Output:
 
 ```
---------------------------------------------------------
- | First          | Second | Third           | Fourth |
---------------------------------------------------------
- | a              | b      | c               |        |
- | asddsfa        | sss    | zxc             |        |
- | dsgvdgsdvgssdf | x      | eryty           |        |
- | m              | n      | o               | p      |
- | 5              | null   | [object Object] |        |
- | function (){}  |        |                 |        |
---------------------------------------------------------
+x----------------x--------x-----------------x--------x
+| First          | Second | Third           | Fourth |
+x----------------x--------x-----------------x--------x
+| a              | b      | c               |        |
+| asddsfa        | sss    | zxc             |        |
+| dsgvdgsdvgssdf | x      | eryty           |        |
+| m              | n      | o               | p      |
+| 5              | null   | [object Object] |        |
+| function (){}  |        |                 |        |
+x----------------x--------x-----------------x--------x
 ```
 
 License
