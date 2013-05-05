@@ -1,4 +1,4 @@
-var asciitable = module.exports = function asciitable(options, data) {
+var asciitable = function asciitable(options, data) {
   var pad = function pad(text, length) {
     if (typeof text === "undefined") { text = ""; }
     return ("" + text) + new Array(Math.max((length - ("" + text).length) + 1,0)).join(" ");
@@ -71,3 +71,5 @@ var asciitable = module.exports = function asciitable(options, data) {
 
   return output.join("\n");
 };
+
+if(typeof module !== "undefined") module.exports = asciitable;
